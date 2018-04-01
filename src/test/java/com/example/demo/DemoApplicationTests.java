@@ -16,15 +16,20 @@ public class DemoApplicationTests {
 	@Test
 	public void testSaveUser() throws Exception {
 		UserEntity user=new UserEntity();
-		user.setId(2l);
+		user.setId(4l);
 		user.setUserName("小明");
-		user.setPassWord("fffooo123");
+		user.setPassWord("erewerwerwe");
+//		School school = new School();
+////		school.setStudent("陈全");
+////		school.setTeacher("laoshi");
+
+
 		userDaoImpl.saveUser(user);
 	}
 
 	@Test
 	public void findUserByUserName(){
-		UserEntity user= userDaoImpl.findUserByUserName("小明");
+		UserEntity user= userDaoImpl.findUserByUserName("3");
 		System.out.println("user is "+user);
 	}
 

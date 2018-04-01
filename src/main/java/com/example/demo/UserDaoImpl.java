@@ -24,6 +24,9 @@ class UserDaoImpl  {
     public void saveUser(UserEntity user) {
         mongoTemplate.save(user);
     }
+    public void saveUser(School user) {
+        mongoTemplate.save(user);
+    }
 
     /**
      * 根据用户名查询对象
@@ -31,7 +34,9 @@ class UserDaoImpl  {
      * @return
      */
     public UserEntity findUserByUserName(String userName) {
-        Query query=new Query(Criteria.where("userName").is(userName));
+//        Query query=new Query(Criteria.where("userName").is(userName));
+        Query query=new Query(Criteria.where("passWord").regex(".*?"+userName+".*?"));
+
         UserEntity user =  mongoTemplate.findOne(query , UserEntity.class);
         return user;
     }
